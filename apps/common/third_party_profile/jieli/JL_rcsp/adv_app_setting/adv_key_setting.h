@@ -1,0 +1,45 @@
+#ifndef __ADV_KEY_SETTING_H__
+#define __ADV_KEY_SETTING_H__
+
+
+#include "le_rcsp_adv_module.h"
+
+#if RCSP_ADV_KEY_SET_ENABLE
+enum ADV_KEY_TYPE {
+    ADV_KEY_TYPE_NULL = 0x0,
+    ADV_KEY_TYPE_NEXT,
+    ADV_KEY_TYPE_PREV,
+    ADV_KEY_TYPE_DESC_VOICE,//减小音量
+    ADV_KEY_TYPE_INC_VOICE, //增大音量
+    ADV_KEY_TYPE_PP,
+    ADV_KEY_TYPE_OPEN_SIRI,
+    ADV_KEY_TYPE_ANSWER_CALL,
+    ADV_KEY_TYPE_HANG_UP,
+    ADV_KEY_TYPE_CALL_BACK,
+    ADV_KEY_LOW_LANTECY,
+    ADV_KEY_TYPE_ANC_VOICE = 0xFF,
+};
+// enum ADV_KEY_FUNC {
+//     ADV_KEY_EVENT_HOLD_L = 0x0,
+//     ADV_KEY_EVENT_HOLD_R,    
+//     ADV_KEY_EVENT_DOUBLE_CLICK_L,
+//     ADV_KEY_EVENT_DOUBLE_CLICK_R,
+//     ADV_KEY_EVENT_TRIPLE_CLICK_L,
+//     ADV_KEY_EVENT_TRIPLE_CLICK_R,
+// };
+enum RCSP_EAR_CHANNEL {
+    RCSP_EAR_CHANNEL_LEFT = 0x01,
+    RCSP_EAR_CHANNEL_RIGHT = 0x02,
+};
+
+enum RCSP_KEY_ACTION {
+    RCSP_KEY_ACTION_CLICK = 0x01,
+    RCSP_KEY_ACTION_DOUBLE_CLICK,
+    RCSP_KEY_ACTION_TRIPLE_CLICK,
+    RCSP_KEY_ACTION_LONG_CLICK,
+};
+void set_key_setting(u8 *key_setting_info);
+void get_key_setting(u8 *key_setting_info);
+
+#endif
+#endif
